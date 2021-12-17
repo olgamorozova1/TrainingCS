@@ -8,31 +8,31 @@ namespace Tasks
 {
     internal class Task1
     {
-        public static void Main()
-        {
-            int[] array = new int[10];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = i * 2;
-            }
+    //    public static void Main()
+    //    {
+    //        int[] array = new int[10];
+    //        for (int i = 0; i < array.Length; i++)
+    //        {
+    //            array[i] = i * 2;
+    //        }
 
-            foreach (int value in array)
-            {
-                Console.WriteLine(value);
-            }
+    //        foreach (int value in array)
+    //        {
+    //            Console.WriteLine(value);
+    //        }
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i]);
-            }
+    //        for (int i = 0; i < array.Length; i++)
+    //        {
+    //            Console.WriteLine(array[i]);
+    //        }
 
-            int j = 0;
+    //        int j = 0;
 
-            while (j < array.Length)
-            {
-                Console.WriteLine(array[j]);
-                j++;
-            }
-        }
+    //        while (j < array.Length)
+    //        {
+    //            Console.WriteLine(array[j]);
+    //            j++;
+    //        }
+    //    }
     }
 }

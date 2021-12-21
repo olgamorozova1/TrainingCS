@@ -13,7 +13,7 @@ namespace Tasks.Task3
 
         protected Training(string? description)
         {
-            Guid = Guid.NewGuid();
+            Guid = Guid.GenerateGuid();
             ValidateAndSetDescription(description);
         }
 

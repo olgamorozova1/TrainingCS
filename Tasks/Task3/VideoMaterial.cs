@@ -49,8 +49,7 @@ namespace Tasks.Task3
 
         public override string? ToString()
         {
-            return "URI of video context: " + uriOfVideoContent + "\nURI of splash screen: " + UriOfSplashScreen
-                + "\nVideo Format: " + VideoFormat;
+            return $"URI of video context: {uriOfVideoContent} \nURI of splash screen: {UriOfSplashScreen}\nVideo Format: {VideoFormat}";
         }
 
         public void SetVersion()
@@ -61,10 +60,14 @@ namespace Tasks.Task3
             }
         }
 
-        public string ReadVersion()
+        public byte[] ReadVersion()
         {
-            return BitConverter.ToString(version);
-        //Convert.ToBase64String(version);
+            return version;
+        }
+
+        public override object Clone()
+        {
+            return new VideoMaterial(this.uriOfVideoContent, this.UriOfSplashScreen, this.VideoFormat, Description);
         }
     }
 }

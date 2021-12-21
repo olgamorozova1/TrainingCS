@@ -40,9 +40,14 @@ namespace Tasks.Task3
             }
         }
 
-        public override string? ToString()
+        public override string ToString()
         {
-            return "Text: " + text;
+            return $"Text: {text}";
+        }
+
+        public override object Clone()
+        {
+            return new TextMaterial(this.text, Description);
         }
     }
 }

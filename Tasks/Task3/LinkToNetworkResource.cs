@@ -44,7 +44,12 @@ namespace Tasks.Task3
 
         public override string? ToString()
         {
-            return "URI of Content:  " + uriContent + "\nLink type: " + LinkType;
+            return $"URI of Content:  {uriContent} \nLink type: {LinkType}";
+        }
+
+        public override object Clone()
+        {
+            return new LinkToNetworkResource(this.uriContent, this.LinkType, Description);
         }
     }
 }

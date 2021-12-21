@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Tasks.Task3
 {
-    internal interface IVersionable
+    internal static class GuidExtention
     {
-        void SetVersion();
-
-        byte[] ReadVersion();
+        public static Guid GenerateGuid (this Guid guid)
+        {
+            return Guid.NewGuid();
+        }
     }
 }

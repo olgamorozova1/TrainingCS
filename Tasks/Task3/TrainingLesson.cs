@@ -33,7 +33,7 @@ namespace Tasks.Task3
             StringBuilder trainingLessonString = new StringBuilder("Lesson type: " + DefineTypeOfLesson() + "\nVersion: " + ReadVersion());
             foreach (TrainingMaterial material in TrainingMaterial)
             {   
-                trainingLessonString.Append("\nTraining Material:\n" + material.ToString() + " ");
+                trainingLessonString.Append("\nTraining Material:\n" + material.ToString());
             };
             return trainingLessonString.ToString();
         }
@@ -46,21 +46,19 @@ namespace Tasks.Task3
             }
         }
 
-        public string ReadVersion()
+        public byte[] ReadVersion()
         {
-            if (version[0]!=0)
-            {
-                return BitConverter.ToString(version);
-                //Convert.ToBase64String(version);}
-            }
-            else return "Version is not set";
+            return version;
         }
 
             public object Clone()
         {
-            TrainingMaterial[] newTrainingMaterial = new TrainingMaterial[TrainingMaterial.Length];
-            TrainingMaterial.CopyTo(newTrainingMaterial, 0);
-            TrainingLesson clonedTrainingLesson = new TrainingLesson(newTrainingMaterial, Description);
+            TrainingMaterial[] clonedTrainingMaterial = new TrainingMaterial[TrainingMaterial.Length];
+            for (int i = 0; i < TrainingMaterial.Length; i++)
+            {
+                clonedTrainingMaterial[i] = (TrainingMaterial)TrainingMaterial[i].Clone();
+            }
+            TrainingLesson clonedTrainingLesson = new TrainingLesson(clonedTrainingMaterial, Description);
             clonedTrainingLesson.version = this.version;
             return clonedTrainingLesson;   
         }

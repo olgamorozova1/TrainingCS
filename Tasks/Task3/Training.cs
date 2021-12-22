@@ -8,6 +8,7 @@ namespace Tasks.Task3
 {
     internal abstract class Training
     {
+        public const int MAX_DESCRIPTION_LENGTH = 256;
         public Guid Guid { get; set; }
         private string? description;
 
@@ -32,7 +33,7 @@ namespace Tasks.Task3
 
         private void ValidateAndSetDescription (string? description)
         {
-            if (description != null && description.Length > 256)
+            if (description != null && description.Length > MAX_DESCRIPTION_LENGTH)
             {
                 throw new Exception("Description length is excedeeded");  
             }

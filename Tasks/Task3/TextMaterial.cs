@@ -8,6 +8,7 @@ namespace Tasks.Task3
 {
     internal class TextMaterial : TrainingMaterial
     {
+        public const int MAX_TEXT_LENGTH = 10000;
         private string text;
 
         public TextMaterial(string text, string description) : base (description)
@@ -30,7 +31,7 @@ namespace Tasks.Task3
 
         private void ValidateAndSetText(string text)
         {
-            if (text.Length <= 10000 && !String.IsNullOrEmpty(text))
+            if (text.Length <= MAX_TEXT_LENGTH && !String.IsNullOrEmpty(text))
             {
                 this.text = text;
             }

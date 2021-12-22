@@ -9,9 +9,9 @@ namespace Tasks.Task3
     {
         private byte[] version = new byte[8];
 
-        private TrainingMaterial[] TrainingMaterial { get; set; }
+        private List <TrainingMaterial> TrainingMaterial { get; set; }
 
-        public TrainingLesson (TrainingMaterial[] trainingMaterial, string? description) : base(description)
+        public TrainingLesson (List <TrainingMaterial> trainingMaterial, string? description) : base(description)
         {
             TrainingMaterial = trainingMaterial;
         }
@@ -53,8 +53,8 @@ namespace Tasks.Task3
 
             public object Clone()
         {
-            TrainingMaterial[] clonedTrainingMaterial = new TrainingMaterial[TrainingMaterial.Length];
-            for (int i = 0; i < TrainingMaterial.Length; i++)
+            List <TrainingMaterial> clonedTrainingMaterial = new List <TrainingMaterial>();
+            for (int i = 0; i < TrainingMaterial.Count; i++)
             {
                 clonedTrainingMaterial[i] = (TrainingMaterial)TrainingMaterial[i].Clone();
             }

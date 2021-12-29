@@ -21,13 +21,9 @@ namespace Tasks.Task5
 
             var bookSortedByAuthor = from book in cat1.books where book.ListOfAuthors.SequenceEqual(new List<Author> { new Author("Arthur Conan", "Doyle") }) select book;
             var booksSortedByPublisgDateDesc = from book in cat1.books orderby book.PublishDate descending select book;
-
-            var listOfAuthors = cat1.books.SelectMany(book => book.ListOfAuthors).Distinct().ToList();
-
-            var numberOfBooksForAuthor = from p in cat1.books
-                                         group p by (cat1.books.SelectMany(book => book.ListOfAuthors).Distinct()) into g
-                                         select new { Structure = g.Key, Count = g.Count() };
-
+            var numberOfBooksForAuthor = cat1.books.SelectMany(e => e.ListOfAuthors).GroupBy(d => d)
+                .Select(group => Tuple.Create(group.Key, group.Count()));
+//            var listOfAuthors = cat1.books.SelectMany(book => book.ListOfAuthors).Distinct().ToList();
         }
     }
 }

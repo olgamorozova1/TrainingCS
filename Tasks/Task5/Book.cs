@@ -1,6 +1,6 @@
 ﻿namespace Tasks.Task5
 {
-    internal class Book : IComparable
+    public class Book : IComparable
     {
         public const string ISBN_PATTERN_1 = "\\d{3}-\\d-\\d{2}-\\d{6}-\\d";
         public const string ISBN_PATTERN_2 = "\\d{13}";

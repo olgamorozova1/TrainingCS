@@ -23,7 +23,6 @@ namespace Tasks.Task5
             var booksSortedByPublisgDateDesc = from book in cat1.books orderby book.PublishDate descending select book;
             var numberOfBooksForAuthor = cat1.books.SelectMany(e => e.ListOfAuthors).GroupBy(d => d)
                 .Select(group => Tuple.Create(group.Key, group.Count()));
-//            var listOfAuthors = cat1.books.SelectMany(book => book.ListOfAuthors).Distinct().ToList();
         }
     }
 }

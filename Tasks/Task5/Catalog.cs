@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Tasks.Task5
 {
-    internal class Catalog : IEnumerable
+    public class Catalog : IEnumerable
     {
         public List<Book> books { get; }
 

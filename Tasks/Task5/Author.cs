@@ -2,7 +2,7 @@
 
 namespace Tasks.Task5
 {
-    internal class Author
+    public class Author
     {
         private string _firstName;
         private string _lastName;

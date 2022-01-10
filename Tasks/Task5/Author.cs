@@ -6,6 +6,8 @@ namespace Tasks.Task5
     {
         private string _firstName;
         private string _lastName;
+        public const int MAX_ARGUMENT_LENGTH = 200;
+        public const int MIN_ARGUMENT_LENGTH = 1;
 
         public Author(string firstName, string lastName)
         {
@@ -47,7 +49,7 @@ namespace Tasks.Task5
 
         private void ArgumentLengthCheck (string argument)
         {
-            if (argument.Length < 1 || argument.Length > 200)
+            if (!String.IsNullOrEmpty(argument) && (argument.Length < MIN_ARGUMENT_LENGTH || argument.Length > MAX_ARGUMENT_LENGTH))
                 throw new ArgumentOutOfRangeException("Name length must be less 200 symbols and not empty");
         }
 

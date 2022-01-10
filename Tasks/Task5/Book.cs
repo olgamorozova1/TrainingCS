@@ -1,4 +1,6 @@
-﻿namespace Tasks.Task5
+﻿using System.Text.RegularExpressions;
+
+namespace Tasks.Task5
 {
     public class Book : IComparable
     {
@@ -6,6 +8,10 @@
         public const string ISBN_PATTERN_2 = "\\d{13}";
         private string _isbn;
         private string _name;
+        public Regex pattern1 = new Regex(ISBN_PATTERN_1);
+        public Regex pattern2 = new Regex(ISBN_PATTERN_2);
+        public const int MAX_ARGUMENT_LENGTH = 1000;
+        public const int minArgumentLength = 1;
         public DateOnly? PublishDate { get; set; }
 
         public List<Author>? ListOfAuthors { get; set; }
@@ -15,7 +21,7 @@
             get => _name;
             set
             {
-                if (value.Length < 1 || value.Length > 1000)
+                if (!String.IsNullOrEmpty(value) && (value.Length < minArgumentLength || value.Length > MAX_ARGUMENT_LENGTH))
                     throw new ArgumentOutOfRangeException("Name length must be less 1000 symbols and not empty");
                 _name = value;
             }
@@ -26,8 +32,7 @@
             get => _isbn;
             set
             {
-                var pattern1 = new System.Text.RegularExpressions.Regex(ISBN_PATTERN_1);
-                var pattern2 = new System.Text.RegularExpressions.Regex(ISBN_PATTERN_2);
+
 
                 if (pattern1.IsMatch(value))
                 {
@@ -37,7 +42,10 @@
                 {
                     _isbn = value;
                 }
-                else throw new ArgumentOutOfRangeException("Invalid ISBN format");
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Invalid ISBN format");
+                }
             }
         }
 

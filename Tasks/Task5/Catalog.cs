@@ -1,5 +1,4 @@
 ﻿
-using System;
 using System.Collections;
 
 namespace Tasks.Task5
@@ -18,16 +17,18 @@ namespace Tasks.Task5
             books.Add(book);
         }
 
-        public Book GetBook (string isbn)
-        {
-            foreach (Book book in books)
+        public Book this [string isbn]
             {
-                if (book.ISBN == isbn)
+            get 
+            {
+                foreach (var book in from Book book in books
+                                     where book.ISBN == isbn
+                                     select book)
                 {
                     return book;
                 }
+                return null;
             }
-            return null;
         }
 
         public IEnumerator GetEnumerator()
